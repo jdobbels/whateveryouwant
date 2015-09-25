@@ -1,0 +1,21 @@
+<project name="sf-dev" default="retJOE" basedir="." xmlns:sf="antlib:com.salesforce">
+
+	<property file="..\build.properties"/>
+	<property environment="env"/>
+
+	<taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
+		<classpath>
+			<pathelement location="../ant-salesforce.jar"/>
+		</classpath>
+	</taskdef>
+
+	<target name="retJOE">
+		<sf:retrieve
+			username="${sf.unjoe}"
+			password="${sf.pwjoe}"
+			serverurl="${sf.urltest}"
+			retrieveTarget="src"
+			unpackaged="src/package.xml"/>
+	</target>
+
+</project>
